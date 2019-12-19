@@ -1,4 +1,6 @@
 """ this file defines the neural network model """
+
+#required imports
 from keras import models
 from keras import layers
 from preprocess_data import return_when_called
@@ -21,5 +23,7 @@ history = model.fit(np.array(X_train_scaled),
                     epochs=50,
                     batch_size=100,
                     validation_data=(np.array(X_val_scaled),np.array(y_val)))
-test_loss, test_acc = model.evaluate(np.array(X_test_scaled),np.array(y_test)) #evaluating model on test set
+
+#evaluating model on test set                   
+test_loss, test_acc = model.evaluate(np.array(X_test_scaled),np.array(y_test)) 
 print('test_acc: ',test_acc)
