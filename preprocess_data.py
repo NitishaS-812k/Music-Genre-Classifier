@@ -50,11 +50,10 @@ for i in genre_list:
 X_train, X_test, y_train, y_test = train_test_split(features, y, test_size= 0.1)
 X_train, X_val, y_train, y_val = train_test_split(features, y, test_size = 0.1)
 
-#normalizing features
-scaler = preprocessing.MinMaxScaler()
-X_train_scaled = scaler.fit_transform(X_train)
-X_test_scaled = scaler.fit_transform(X_test)
-X_val_scaled = scaler.fit_transform(X_val)
+#standardizing features
+X_train_scaled = preprocessing.scale(X_train)
+X_test_scaled = preprocessing.scale(X_test)
+X_val_scaled = preprocessing.scale(X_val)
 
 #function to return values when called
 def return_when_called():

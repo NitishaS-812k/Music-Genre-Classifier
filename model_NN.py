@@ -18,7 +18,7 @@ model.compile(optimizer='adam',
 
 history = model.fit(np.array(X_train_scaled),
                     np.array(y_train),
-                    epochs= 50,
+                    epochs=50,
                     batch_size=100,
                     validation_data=(np.array(X_val_scaled),np.array(y_val)))
 test_loss, test_acc = model.evaluate(np.array(X_test_scaled),np.array(y_test)) #evaluating model on test set
