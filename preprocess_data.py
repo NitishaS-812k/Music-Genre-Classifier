@@ -39,17 +39,11 @@ genre_list = data[:,-1]
 features = data[:,:-1]
 
 #creating y vector
-genre_list = [genre_dict.get(e, '') for e in genre_list]
-
-y = []
-for i in genre_list:
-    k = [0]*len(genre_dict)
-    k[i] = 1
-    y.append(k)   
+genre_list = [genre_dict.get(e, '') for e in genre_list] 
 
 #dividing into training and test arrays
-X_train, X_test, y_train, y_test = train_test_split(features, y, test_size= 0.1)
-X_train, X_val, y_train, y_val = train_test_split(features, y, test_size = 0.1)
+X_train, X_test, y_train, y_test = train_test_split(features, genre_list, test_size= 0.1)
+X_train, X_val, y_train, y_val = train_test_split(features, genre_list, test_size = 0.1)
 
 #standardizing features
 X_train_scaled = preprocessing.scale(X_train)

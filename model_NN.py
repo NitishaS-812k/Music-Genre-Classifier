@@ -5,9 +5,13 @@ from keras import models
 from keras import layers
 from preprocess_data import return_when_called
 import numpy as np
+from keras.utils import to_categorical
 
 #gets the X and Y arrays from preprocess_data
 X_train_scaled,X_test_scaled,X_val_scaled,y_train,y_test,y_val = return_when_called()
+y_train = to_categorical(y_train)
+y_test = to_categorical(y_test)
+y_val = to_categorical(y_val)
 
 model = models.Sequential()
 model.add(layers.Dense(26,activation = 'relu')) #input layer
